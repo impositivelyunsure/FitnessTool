@@ -24,7 +24,7 @@ namespace FitnessTool
                     {
                         FitnessMethods temp = new FitnessMethods();
 
-                        this.macroList.Add(temp.CalcMacros(resultProteins, resultFats, resultCarbs););
+                        this.macroList.Add(temp.CalcMacros(resultProteins, resultFats, resultCarbs));
                     }
                     else
                     {
