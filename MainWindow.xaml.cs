@@ -13,9 +13,7 @@ namespace FitnessTool
 {
     /// Author: Ethan Daly
     /// Date: 19/03/2026
-    /// <summary>   
     /// Fitness app project used to track macros of created meals & food items
-    /// </summary>
     
     public partial class MainWindow : Window
     {

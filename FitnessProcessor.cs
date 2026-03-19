@@ -10,10 +10,13 @@ using static FitnessLibrary.FitnessProcessorLib;
 
 namespace FitnessTool
 {
-    class FitnessProcessor
+    // back-end processor class
+    public class FitnessProcessor
     {
         public List<double> macroList = new List<double>();
 
+
+        // method for adding macros to list
         public void AddMacros(string proteinsInput, string fatsInput, string carbsInput)
         {
             if (Double.TryParse(proteinsInput, out double resultProteins))
@@ -22,8 +25,10 @@ namespace FitnessTool
                 {
                     if (Double.TryParse(carbsInput, out double resultCarbs))
                     {
+                        // create library object with reference to fitnessmethods classi nside the library
                         FitnessMethods temp = new FitnessMethods();
 
+                        // calculate macros from this object given the inputs, add result to the macro list
                         this.macroList.Add(temp.CalcMacros(resultProteins, resultFats, resultCarbs));
                     }
                     else
