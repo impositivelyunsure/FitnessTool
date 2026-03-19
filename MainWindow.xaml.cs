@@ -11,14 +11,22 @@ using System.Windows.Shapes;
 
 namespace FitnessTool
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Author: Ethan Daly
+    /// Date: 19/03/2026
+    /// <summary>   
+    /// Fitness app project used to track macros of created meals & food items
     /// </summary>
+    
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void btnCalcMacros_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

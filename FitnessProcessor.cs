@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows;
 using static FitnessLibrary.FitnessProcessorLib;
 
 
@@ -18,12 +19,21 @@ namespace FitnessTool
                     {
                         var APIobject = new FitnessAPIClient();
                     }
-
+                    else
+                    {
+                        MessageBox.Show("protein input is not a valid number", "Input Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("fats input is not a valid number", "Input Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 }
             }
+            else
+            {
+                MessageBox.Show("carbs input is not a valid number", "Input Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
         }
-
-
 
 
     }

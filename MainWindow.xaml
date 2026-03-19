@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <ListBox Name="lstBoxMacros" Margin="309,55,309,55"/>
+        <TextBox Name="txtBoxProteins" HorizontalAlignment="Left" Margin="38,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="txtBoxFats" HorizontalAlignment="Left" Margin="38,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="txtBoxCarbs" HorizontalAlignment="Left" Margin="38,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Name="btnCalcMacros" Content="Calculate Macros" HorizontalAlignment="Left" Margin="174,135,0,0" VerticalAlignment="Top" Width="114" RenderTransformOrigin="0.296,-0.173" Click="btnCalcMacros_Click"/>
     </Grid>
 </Window>
