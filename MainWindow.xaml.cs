@@ -19,6 +19,8 @@ namespace FitnessTool
     
     public partial class MainWindow : Window
     {
+        FitnessProcessor processorObj = new FitnessProcessor();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -26,7 +28,7 @@ namespace FitnessTool
 
         private void btnCalcMacros_Click(object sender, RoutedEventArgs e)
         {
-
+            processorObj.AddMacros(txtBoxProteins.Text, txtBoxFats.Text, txtBoxCarbs.Text);
         }
     }
 }

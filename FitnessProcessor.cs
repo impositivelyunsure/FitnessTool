@@ -1,14 +1,19 @@
-﻿using System;
+﻿using FitnessContracts;
+using FitnessLibrary;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
 using static FitnessLibrary.FitnessProcessorLib;
 
 
+
 namespace FitnessTool
 {
     class FitnessProcessor
     {
+        public List<double> macroList = new List<double>();
+
         public void AddMacros(string proteinsInput, string fatsInput, string carbsInput)
         {
             if (Double.TryParse(proteinsInput, out double resultProteins))
@@ -17,7 +22,9 @@ namespace FitnessTool
                 {
                     if (Double.TryParse(carbsInput, out double resultCarbs))
                     {
-                        var APIobject = new FitnessAPIClient();
+                        FitnessMethods temp = new FitnessMethods();
+
+                        this.macroList.Add(temp.CalcMacros(resultProteins, resultFats, resultCarbs););
                     }
                     else
                     {
