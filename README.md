@@ -25,6 +25,6 @@ This fitness tool is meant to provide meal tracking with analytics for nutrient 
 ## 👨‍💻 Author
 
 **Developer:** Ethan Daly
-**Project:** Malin Space Science Systems
+**Project:** Fitness Tool
 
 ---
