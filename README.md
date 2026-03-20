@@ -13,12 +13,18 @@ This fitness tool is meant to provide meal tracking with analytics for nutrient 
 
 ---
 
-## 🎯 Planned Features
+## 🛠  Planned Features
 
 * Frequent updates on existing food & meal pricing
 * Adding auto meal creations based off micro and macro requirements, price, food exclusions, allergies
 * Barcode scanning on phone app
 * Logs & Error tracking
+
+---
+
+## 🤝 Contributing
+
+Feel free to fork and submit pull requests. Ideas, bug reports, and feedback are welcome.
 
 ---
 
