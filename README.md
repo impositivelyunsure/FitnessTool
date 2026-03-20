@@ -31,6 +31,5 @@ Feel free to fork and submit pull requests. Ideas, bug reports, and feedback are
 ## 👨‍💻 Author
 
 **Developer:** Ethan Daly
-**Project:** Fitness Tool
 
 ---
