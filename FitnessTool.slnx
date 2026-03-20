@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="../FitnessAPI/FitnessAPI.csproj" Id="597d75ef-bb64-4fa2-81e0-a6dc1e6d4329" />
   <Project Path="../FitnessContracts/FitnessContracts.csproj" />
   <Project Path="../FitnessLibrary/FitnessLibrary.csproj" />
   <Project Path="FitnessTool.csproj" />

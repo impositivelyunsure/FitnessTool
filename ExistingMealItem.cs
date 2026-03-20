@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FitnessTool
 {
-    internal class ExistingMealItem
+    public class ExistingMealItem
     {
     }
 }

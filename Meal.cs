@@ -4,7 +4,8 @@ using System.Text;
 
 namespace FitnessTool
 {
-    internal class Meal
+    public class Meal
     {
+        public Guid mealID { get; set; }
     }
 }
