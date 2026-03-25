@@ -7,5 +7,6 @@ namespace FitnessTool
     public class Meal
     {
         public Guid mealID { get; set; }
+        public List<MealComponent> listMealComps { get; set; }
     }
 }
