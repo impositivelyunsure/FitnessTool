@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace FitnessTool
@@ -12,6 +13,7 @@ namespace FitnessTool
         public double fats { get; set; }
         public double carbs { get; set; }
         public double grams { get; set; }
+
 
         // Constructor for creating a custom food item
         public CustomFoodItem(string inputBrandName, double inputPrice, double inputProtein, double inputFats, double inputCarbs, double inputGrams)

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FitnessTool
 {
-    public interface Food
+    public abstract class Food
     {
         public string brandName { get; set; }
         public double price { get; set; }
