@@ -9,7 +9,7 @@ C# • WPF • NoSQL
 
 ## 📌 Project Overview
 
-This fitness tool is meant to provide meal tracking with analytics for nutrient markers, macro goals, associated costs, custom meals from manual or existing in-store produce. The goal is to provide a comprehensive tool to track your meals - whether it be for identifying micronutrient deficiencies, calorie intake,  or creating custom meals based off your needs, alternatives, exclusions, whatever. The more you track, the deeper the overview.
+This tool is meant to serve as a way to measure your minerals, vitamins, macro and micronutrient intake through meal tracking. It allows users optimise their diet by providing technical analysis against their needs & provides recommendations.
 
 ---
 
