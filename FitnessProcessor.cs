@@ -13,49 +13,15 @@ namespace FitnessTool
     // back-end processor class
     public class FitnessProcessor
     {
-        public List<double> macroList = new List<double>();
-        public List<CustomMealItem> customMealsList = new List<CustomMealItem>();
+        
+        public List<CustomMealItem> customMealsList = new();
 
-        public List<MealComponent> componentList = new List<MealComponent>();
+        public List<MealComponent> componentList = new();
 
-
-        // method for adding macros to list
-        public void AddMacros(string proteinsInput, string fatsInput, string carbsInput)
+       
+        public void AddCustomMeal()
         {
-            if (Double.TryParse(proteinsInput, out double resultProteins))
-            {
-                if (Double.TryParse(fatsInput, out double resultFats))
-                {
-                    if (Double.TryParse(carbsInput, out double resultCarbs))
-                    {
-                        // create library object with reference to fitnessmethods class inside the library
-                        FitnessMethods temp = new FitnessMethods();
-
-                        // calculate macros from this object given the inputs, add result to the macro list
-                        this.macroList.Add(temp.CalcMacros(resultProteins, resultFats, resultCarbs));
-                    }
-                    else
-                    {
-                        MessageBox.Show("protein input is not a valid number", "Input Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("fats input is not a valid number", "Input Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                }
-            }
-            else
-            {
-                MessageBox.Show("carbs input is not a valid number", "Input Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-            }
-        }
-
-        public void AddCustomMeal(List<MealComponent> componentsInputList)
-        {
-            customMealsList
-
-
-            // clear comp list after creation
+           
         }
 
         public void AddComponent(MealComponent component)
@@ -63,14 +29,41 @@ namespace FitnessTool
             componentList.Add(component);
         }
 
-        public CustomMealItem CreateCustomMealItem(List<MealComponent> mealItemsList)
+        // method for creating a custom meal
+        // add feature:
+        // comp list shouldnt need to clear every time, its tedious especially if youre manually adding items there
+        // remove the need for meal component section, it should be as simple as searching the database & dragging food items into a meal.
+        public CustomMealItem CreateCustomMeal(List<MealComponent> componentsInputList, string inputName, string inputQuantity, string inputServingSize, string inputGrams)
         {
-            componentList = mealItemsList;
-
-            CustomMealItem custMealItem = new CustomMealItem();
-
-            return custMealItem;
+            if (Double.TryParse(inputQuantity, out double resultQuantity))
+            {
+                if (Double.TryParse(inputServingSize, out double resultServingSize))
+                {
+                    if (Double.TryParse(inputGrams, out double resultGrams))
+                    {
+                        // i need to later add error trapping to check if comp list is actually valid
+                        CustomMealItem temp = new CustomMealItem(componentsInputList, inputName, resultQuantity, resultServingSize, resultGrams);
+                        componentsInputList.Clear(); // clear comp list as the meal has been created
+                        return temp;
+                    }
+                    else
+                    {
+                        MessageBox.Show("grams input is not a valid number", "Input Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("serving size input is not a valid number", "Input Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                }
+            }
+            else
+            {
+                MessageBox.Show("quantity input is not a valid number", "Input Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+            // return null
+            return null;
         }
+               
 
         // Create and return a custom food item 
         public CustomFoodItem CreateCustomFoodItem(string inputBrandName, double inputPrice, double inputProtein, double inputFats, double inputCarbs, double inputGrams)
