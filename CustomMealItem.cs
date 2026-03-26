@@ -6,14 +6,18 @@ namespace FitnessTool
 {
     public class CustomMealItem : Meal
     {
+        List<MealComponent> componentsList = new List<MealComponent>();
         public double quantity { get; set; }
         public double servingSize { get; set; }
         public double grams { get; set; }
-        public CustomMealItem CreateCustomMealItem(List<MealComponent> listMealItems)
-        {
-            CustomMealItem custMealItem = new CustomMealItem();
 
-            return custMealItem;
+        public CustomMealItem(List<MealComponent> inputCompList, double inputQuantity, double inputServingSize, double inputGrams)
+        {
+            componentsList = inputCompList;
+            quantity = inputQuantity;
+            servingSize = inputServingSize;
+            grams = inputGrams;
         }
+        
     }
 }
