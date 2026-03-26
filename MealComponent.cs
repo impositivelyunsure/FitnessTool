@@ -4,10 +4,15 @@ using System.Text;
 
 namespace FitnessTool
 {
-    // i think creating a separate class of meal components is more coherent than i`nheriting directly from food
-    // 
+
+    // decided on a separate meal comp class as it's better aggregation than inheriting food class directly
     public class MealComponent
     {
-        public Food food { get; set; }
+        public Food compFood { get; set; }
+
+        public MealComponent (Food inputFood)
+        {
+            compFood = inputFood;
+        }
     }
 }

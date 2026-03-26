@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FitnessTool"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="644" Width="1344">
     <Grid>
-        <ListBox Name="lstBoxMacros" Margin="309,55,309,55"/>
-        <TextBox Name="txtBoxProteins" HorizontalAlignment="Left" Margin="38,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="txtBoxFats" HorizontalAlignment="Left" Margin="38,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="txtBoxCarbs" HorizontalAlignment="Left" Margin="38,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Name="btnCalcMacros" Content="Calculate Macros" HorizontalAlignment="Left" Margin="174,135,0,0" VerticalAlignment="Top" Width="114" RenderTransformOrigin="0.296,-0.173" Click="btnCalcMacros_Click"/>
+        <TextBox Name="txtBoxMealName" HorizontalAlignment="Left" Margin="44,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="txtBoxMealQuant" HorizontalAlignment="Left" Margin="44,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="txtBoxMealServ" HorizontalAlignment="Left" Margin="44,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="txtBoxMealGrams" HorizontalAlignment="Left" Margin="44,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Name="btnCreateCustomMeal" Content="Create Custom Meal" HorizontalAlignment="Left" Margin="204,135,0,0" VerticalAlignment="Top" Width="188" Click="btnCreateCustomMeal_Click"/>
     </Grid>
 </Window>
