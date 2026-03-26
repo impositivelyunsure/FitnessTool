@@ -35,36 +35,28 @@ namespace FitnessTool
         // remove the need for meal component section, it should be as simple as searching the database & dragging food items into a meal.
         public CustomMealItem CreateCustomMeal(List<MealComponent> componentsInputList, string inputName, string inputQuantity, string inputServingSize, string inputGrams)
         {
-            if (Double.TryParse(inputQuantity, out double resultQuantity))
+            var inputs = new List<string> { inputName, inputQuantity, inputServingSize, inputGrams };
+            var result = Parser.ParseAllDoubles(inputs);
+
+            if (result.success == true)
             {
-                if (Double.TryParse(inputServingSize, out double resultServingSize))
-                {
-                    if (Double.TryParse(inputGrams, out double resultGrams))
-                    {
-                        // i need to later add error trapping to check if comp list is actually valid
-                        CustomMealItem temp = new CustomMealItem(componentsInputList, inputName, resultQuantity, resultServingSize, resultGrams);
-                        componentsInputList.Clear(); // clear comp list as the meal has been created
-                        return temp;
-                    }
-                    else
-                    {
-                        MessageBox.Show("grams input is not a valid number", "Input Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("serving size input is not a valid number", "Input Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                }
+                double quant = result.validList[0];
+                double servSize = result.validList[1];
+                double grams = result.validList[2];
+
+                // i need to later add error trapping to check if comp list is actually valid
+                CustomMealItem custMeal = new CustomMealItem(componentsInputList, inputName, quant, servSize, grams);
+                componentsInputList.Clear(); // clear comp list as the meal has been created
+                return custMeal;
             }
             else
             {
-                MessageBox.Show("quantity input is not a valid number", "Input Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                Console.WriteLine("Invalid inputs: " + string.Join(", ", result.invalidList));
             }
-            // return null
             return null;
         }
 
-
+       
         // Create and return a custom food item 
         public CustomFoodItem CreateCustomFoodItem(string inputBrandName, string inputPrice, string inputProtein, string inputFats, string inputCarbs, string inputGrams)
         {
