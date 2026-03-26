@@ -19,9 +19,9 @@ namespace FitnessTool
         public List<MealComponent> componentList = new();
 
        
-        public void AddCustomMeal()
+        public void AddCustomMeal(CustomMealItem custMealItem)
         {
-           
+            customMealsList.Add(custMealItem);
         }
 
         public void AddComponent(MealComponent component)
@@ -63,13 +63,45 @@ namespace FitnessTool
             // return null
             return null;
         }
-               
+
 
         // Create and return a custom food item 
-        public CustomFoodItem CreateCustomFoodItem(string inputBrandName, double inputPrice, double inputProtein, double inputFats, double inputCarbs, double inputGrams)
+        public CustomFoodItem CreateCustomFoodItem(string inputBrandName, string inputPrice, string inputProtein, string inputFats, string inputCarbs, string inputGrams)
         {
-            CustomFoodItem custFoodItem = new CustomFoodItem(inputBrandName, inputPrice, inputProtein, inputFats, inputCarbs, inputGrams);
-            return custFoodItem;
+            if (Double.TryParse(inputPrice, out double resultPrice))
+            {
+                if (Double.TryParse(inputProtein, out double resultProtein))
+                {
+                    if (Double.TryParse(inputFats, out double resultFats))
+                    {
+                        if (Double.TryParse(inputCarbs, out double resultCarbs))
+                        {
+                            if (Double.TryParse(inputGrams, out double resultGrams))
+                            {
+                                CustomFoodItem custFoodItem = new CustomFoodItem(inputBrandName, resultPrice, resultProtein, resultFats, resultCarbs, resultGrams);
+                                return custFoodItem;
+                            }
+                            else
+                            {
+                                MessageBox.Show("grams input is not a valid number", "Input Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("grams input is not a valid number", "Input Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("grams input is not a valid number", "Input Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("grams input is not a valid number", "Input Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                }
+            }
+            return null;
         }
 
         // Create and return an existing food item
