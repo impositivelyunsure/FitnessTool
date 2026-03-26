@@ -26,7 +26,25 @@ namespace FitnessTool
 
         private void btnCalcMacros_Click(object sender, RoutedEventArgs e)
         {
-            processorObj.AddMacros(txtBoxProteins.Text, txtBoxFats.Text, txtBoxCarbs.Text);
+            //processorObj.AddMacros(txtBoxProteins.Text, txtBoxFats.Text, txtBoxCarbs.Text);
         }
+
+        private void btnCreateCustomMeal_Click(object sender, RoutedEventArgs e)
+        {
+            string inputBrandName = txtBoxMealName.Text;
+            double inputPrice = 4;
+            double inputProtein = 2;
+            double inputFats = 5;
+            double inputCarbs = 7;
+            double inputGrams = 6;
+            CustomFoodItem test2 = new CustomFoodItem(inputBrandName, inputPrice, inputProtein, inputFats, inputCarbs, inputGrams);
+            MealComponent test = new MealComponent(test2);
+
+            List<MealComponent> testList = new List<MealComponent>();
+            testList.Add(test);
+            processorObj.CreateCustomMeal(testList, "test name", "4", "5", "8");
+        }
+
+        
     }
 }

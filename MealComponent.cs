@@ -5,7 +5,7 @@ using System.Text;
 namespace FitnessTool
 {
 
-    // a separate meal comp is better aggregation than inheriting food class
+    // decided on a separate meal comp class as it's better aggregation than inheriting food class directly
     public class MealComponent
     {
         public Food compFood { get; set; }

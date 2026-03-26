@@ -14,9 +14,12 @@ namespace FitnessTool
      
 
         // this method attempts to parse a collection of strings to doubles
-        // returns true only when the whole collection was successfuly parsed, otherwise false
-        // returns back a list of parsed values if true
-        // returns back a list of the values that couldnt be parsed if false
+        // return object contains bool, only returns true when whole collection was successfuly parsed, otherwise false
+        // return object contains list of parsed values if true
+        // return object contains  list of failed parsed values if false, clearing valid inputs
+        // COULD BE ISSUE DOWN THE ROAD:
+        // as it returns an ordered list, methods calling it that want those values must use result.validList[0], result.validList[1], ect.
+        // its fine until the structure changes, then all methods calling this will have to be manually amended
         public static Parser ParseAllDoubles(IEnumerable<string> inputList)
         {
             var result = new Parser();

@@ -18,6 +18,7 @@ namespace FitnessTool
 
         public List<MealComponent> componentList = new();
 
+
        
         public void AddCustomMeal(CustomMealItem custMealItem)
         {
@@ -35,17 +36,13 @@ namespace FitnessTool
         // remove the need for meal component section, it should be as simple as searching the database & dragging food items into a meal.
         public CustomMealItem CreateCustomMeal(List<MealComponent> componentsInputList, string inputName, string inputQuantity, string inputServingSize, string inputGrams)
         {
-            var inputs = new List<string> { inputName, inputQuantity, inputServingSize, inputGrams };
+            var inputs = new List<string> { inputQuantity, inputServingSize, inputGrams };
             var result = Parser.ParseAllDoubles(inputs);
 
             if (result.success == true)
             {
-                double quant = result.validList[0];
-                double servSize = result.validList[1];
-                double grams = result.validList[2];
-
                 // i need to later add error trapping to check if comp list is actually valid
-                CustomMealItem custMeal = new CustomMealItem(componentsInputList, inputName, quant, servSize, grams);
+                CustomMealItem custMeal = new CustomMealItem(componentsInputList, inputName, result.validList[0], result.validList[1], result.validList[2]);
                 componentsInputList.Clear(); // clear comp list as the meal has been created
                 return custMeal;
             }
@@ -56,46 +53,25 @@ namespace FitnessTool
             return null;
         }
 
-       
+
         // Create and return a custom food item 
         public CustomFoodItem CreateCustomFoodItem(string inputBrandName, string inputPrice, string inputProtein, string inputFats, string inputCarbs, string inputGrams)
         {
-            if (Double.TryParse(inputPrice, out double resultPrice))
+            var inputs = new List<string> { inputBrandName, inputPrice, inputProtein, inputFats, inputCarbs, inputGrams };
+            var result = Parser.ParseAllDoubles(inputs);
+
+            if (result.success == true)
             {
-                if (Double.TryParse(inputProtein, out double resultProtein))
-                {
-                    if (Double.TryParse(inputFats, out double resultFats))
-                    {
-                        if (Double.TryParse(inputCarbs, out double resultCarbs))
-                        {
-                            if (Double.TryParse(inputGrams, out double resultGrams))
-                            {
-                                CustomFoodItem custFoodItem = new CustomFoodItem(inputBrandName, resultPrice, resultProtein, resultFats, resultCarbs, resultGrams);
-                                return custFoodItem;
-                            }
-                            else
-                            {
-                                MessageBox.Show("grams input is not a valid number", "Input Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("grams input is not a valid number", "Input Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("grams input is not a valid number", "Input Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("grams input is not a valid number", "Input Error", MessageBoxButton.OK, MessageBoxImage.Exclamation);
-                }
+                CustomFoodItem custFoodItem = new CustomFoodItem(inputBrandName, result.validList[0], result.validList[1], result.validList[2], result.validList[3], result.validList[4]);
+                return custFoodItem;
+
+            }
+            else
+            {
+                Console.WriteLine("Invalid inputs: " + string.Join(", ", result.invalidList));
             }
             return null;
         }
-
         // Create and return an existing food item
         public ExistingFoodItem CreateExistingFoodItem(string inputBrandName, double inputPrice, double inputProtein, double inputFats, double inputCarbs, double inputGrams)
         {
