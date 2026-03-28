@@ -37,7 +37,7 @@ namespace FitnessTool
         public CustomMealItem CreateCustomMeal(List<MealComponent> componentsInputList, string inputName, string inputQuantity, string inputServingSize, string inputGrams)
         {
             var inputs = new List<string> { inputQuantity, inputServingSize, inputGrams };
-            var result = Parser.ParseAllDoubles(inputs);
+            var result = Parser.ParseAllToDoubles(inputs);
 
             if (result.success == true)
             {
@@ -58,7 +58,7 @@ namespace FitnessTool
         public CustomFoodItem CreateCustomFoodItem(string inputBrandName, string inputPrice, string inputProtein, string inputFats, string inputCarbs, string inputGrams)
         {
             var inputs = new List<string> { inputBrandName, inputPrice, inputProtein, inputFats, inputCarbs, inputGrams };
-            var result = Parser.ParseAllDoubles(inputs);
+            var result = Parser.ParseAllToDoubles(inputs);
 
             if (result.success == true)
             {

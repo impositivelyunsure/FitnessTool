@@ -6,5 +6,6 @@ namespace FitnessTool
 {
     internal class AminoAcids
     {
+
     }
 }

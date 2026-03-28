@@ -22,7 +22,7 @@ namespace FitnessTool
         decimal sodium_mg { get; set; }
         decimal zinc_mg { get; set; }
         decimal retinol_ug { get; set; }
-        decimal proVitaminA_BetaCaroteneEq_ug { get; set; }
+        decimal betaCaroteneEq_ug { get; set; }
         decimal thiamin_mg { get; set; }
         decimal ribloflavinB2_mg { get; set; }
         decimal niacin_mg { get; set; }
