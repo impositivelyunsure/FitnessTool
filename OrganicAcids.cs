@@ -17,6 +17,5 @@ namespace FitnessTool
         decimal shikimic_acid_g { get; set; }
         decimal succinic_acid_g { get; set; }
         decimal tartaric_acid_g { get; set; }
-
     }
 }

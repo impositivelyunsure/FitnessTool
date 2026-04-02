@@ -7,6 +7,10 @@ namespace FitnessTool
 {
     public class CustomFoodItem : Food
     {
+        public CustomFoodItem()
+        {
+        
+        }
         // Constructor for creating a custom food item
         public CustomFoodItem(string inputBrandName, double inputPrice, double inputProtein, double inputFats, double inputCarbs, double inputGrams)
         {

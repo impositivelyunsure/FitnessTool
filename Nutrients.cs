@@ -10,7 +10,8 @@ namespace FitnessTool
         Minerals mineralProfile = new();
         AminoAcids aminoProfile = new();
         FattyAcids fattyProfile = new();
+        OrganicAcids acidsProfile = new();
         Proximates proximateProfile = new();
-        Others
+        Others othersProfile = new();
     }
 }
