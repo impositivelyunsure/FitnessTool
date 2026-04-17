@@ -16,8 +16,8 @@ namespace FitnessTool
         private static readonly IReadOnlyDictionary<string, string> AfcdOverrides =
         new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
         {
-            ["Classification"] = nameof(AfcdFoodEntryRaw.ClassificationID),
-            ["Moisture (water) (g)"] = nameof(AfcdFoodEntryRaw.MoistureG)
+            ["Classification"] = nameof(AfcdFoodEntryRaw.classificationID),
+            ["Moisture (water) (g)"] = nameof(AfcdFoodEntryRaw.moistureG)
         };
 
         private static readonly IReadOnlyDictionary<string, string> AusnutOverrides =

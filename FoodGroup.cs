@@ -9,5 +9,6 @@ namespace FitnessTool
         public int foodGroupID { get; set; } // 2 digit classification ID, the main group
         public string foodGroupName { get; set; } = "";
 
+
     }
 }
