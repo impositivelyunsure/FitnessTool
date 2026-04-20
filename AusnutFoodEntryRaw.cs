@@ -4,9 +4,9 @@ using System.Text;
 
 namespace FitnessTool
 {
-    internal class AusnutFoodEntryRaw
+    public class AusnutFoodEntryRaw
     {
-        public int surveyId { get; set; }
+        public int surveyID { get; set; }
         public string publicFoodKey { get; set; } = "";
         public string derivation { get; set; } = "";
         public string foodName { get; set; } = "";

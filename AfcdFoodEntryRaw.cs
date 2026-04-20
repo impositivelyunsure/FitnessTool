@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FitnessTool
 {
-    internal class AfcdFoodEntryRaw
+    public class AfcdFoodEntryRaw
     {
 
         public string publicFoodKey { get; set; } = "";

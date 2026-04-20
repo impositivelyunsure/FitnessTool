@@ -27,140 +27,86 @@ namespace FitnessTool
             // -----------------------------
             // Primary keys
             // -----------------------------
-            modelBuilder.Entity<FoodGroup>()
-                .HasKey(x => x.Code);
-
-            modelBuilder.Entity<FoodSubgroup>()
-                .HasKey(x => x.Code);
-
-            modelBuilder.Entity<FoodClassification>()
-                .HasKey(x => x.Code);
-
-            modelBuilder.Entity<AfcdFoodEntryRaw>()
-                .HasKey(x => x.PublicFoodKey);
-
-            modelBuilder.Entity<AusnutFoodEntryRaw>()
-                .HasKey(x => x.SurveyId);
-
-            modelBuilder.Entity<AusnutFoodMetadataRaw>()
-                .HasKey(x => x.SurveyId);
+            modelBuilder.Entity<FoodGroup>().HasKey(x => x.foodGroupID);
+            modelBuilder.Entity<FoodSubgroup>().HasKey(x => x.foodSubgroupID);
+            modelBuilder.Entity<FoodClassification>().HasKey(x => x.classificationID);
+            modelBuilder.Entity<AfcdFoodEntryRaw>().HasKey(x => x.publicFoodKey);
+            modelBuilder.Entity<AusnutFoodEntryRaw>().HasKey(x => x.surveyID);
+            modelBuilder.Entity<AusnutFoodMetadataRaw>().HasKey(x => x.surveyID);
 
             // -----------------------------
             // Basic field configuration
             // -----------------------------
             modelBuilder.Entity<FoodGroup>()
-                .Property(x => x.Code)
-                .HasMaxLength(2)
-                .IsRequired();
-
-            modelBuilder.Entity<FoodGroup>()
-                .Property(x => x.Name)
-                .IsRequired();
+                .Property(x => x.foodGroupID).HasMaxLength(2).IsRequired();
 
             modelBuilder.Entity<FoodSubgroup>()
-                .Property(x => x.Code)
-                .HasMaxLength(3)
-                .IsRequired();
-
-            modelBuilder.Entity<FoodSubgroup>()
-                .Property(x => x.Name)
-                .IsRequired();
-
-            modelBuilder.Entity<FoodSubgroup>()
-                .Property(x => x.FoodGroupCode)
-                .HasMaxLength(2)
-                .IsRequired();
+                .Property(x => x.foodSubgroupID).HasMaxLength(3).IsRequired();
 
             modelBuilder.Entity<FoodClassification>()
-                .Property(x => x.Code)
-                .HasMaxLength(5)
-                .IsRequired();
-
-            modelBuilder.Entity<FoodClassification>()
-                .Property(x => x.Name)
-                .IsRequired();
-
-            modelBuilder.Entity<FoodClassification>()
-                .Property(x => x.FoodSubgroupCode)
-                .HasMaxLength(3)
-                .IsRequired();
+                .Property(x => x.classificationID).HasMaxLength(5).IsRequired();
 
             modelBuilder.Entity<AfcdFoodEntryRaw>()
-                .Property(x => x.PublicFoodKey)
-                .HasMaxLength(20)
-                .IsRequired();
+                .Property(x => x.publicFoodKey).HasMaxLength(20).IsRequired();
 
             modelBuilder.Entity<AfcdFoodEntryRaw>()
-                .Property(x => x.ClassificationCode)
-                .HasMaxLength(5)
-                .IsRequired();
+                .Property(x => x.classificationID).HasMaxLength(5).IsRequired();
 
             modelBuilder.Entity<AfcdFoodEntryRaw>()
-                .Property(x => x.FoodName)
-                .IsRequired();
+                .Property(x => x.foodName).IsRequired();
 
             modelBuilder.Entity<AusnutFoodEntryRaw>()
-                .Property(x => x.PublicFoodKey)
-                .HasMaxLength(20)
-                .IsRequired();
+                .Property(x => x.publicFoodKey).HasMaxLength(20).IsRequired();
 
             modelBuilder.Entity<AusnutFoodEntryRaw>()
-                .Property(x => x.FoodName)
-                .IsRequired();
+                .Property(x => x.foodName).IsRequired();
 
             modelBuilder.Entity<AusnutFoodMetadataRaw>()
-                .Property(x => x.PublicFoodKey)
-                .HasMaxLength(20)
-                .IsRequired();
+                .Property(x => x.publicFoodKey).HasMaxLength(20).IsRequired();
 
             modelBuilder.Entity<AusnutFoodMetadataRaw>()
-                .Property(x => x.FoodName)
-                .IsRequired();
+                .Property(x => x.foodName).IsRequired();
 
             modelBuilder.Entity<AusnutFoodMetadataRaw>()
-                .Property(x => x.FoodAndDietarySupplementClassificationCode)
-                .HasMaxLength(5)
-                .IsRequired();
+                .Property(x => x.foodAndDietarySupplementClassificationCode).HasMaxLength(5).IsRequired();
 
             modelBuilder.Entity<AusnutFoodMetadataRaw>()
-                .Property(x => x.AdgClassificationCode1)
-                .HasMaxLength(10);
+                .Property(x => x.adgClassificationCode1).HasMaxLength(10);
 
             modelBuilder.Entity<AusnutFoodMetadataRaw>()
-                .Property(x => x.AdgClassificationCode2)
-                .HasMaxLength(10);
+                .Property(x => x.adgClassificationCode2).HasMaxLength(10);
 
             // -----------------------------
             // Hierarchy relationships
             // -----------------------------
             modelBuilder.Entity<FoodSubgroup>()
-                .HasOne(x => x.FoodGroup)
+                .HasOne(x => x.foodGroup) // Navigation property (Object)
                 .WithMany()
-                .HasForeignKey(x => x.FoodGroupCode)
+                .HasForeignKey(x => x.foodGroupID) // Foreign Key (String)
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<FoodClassification>()
-                .HasOne(x => x.FoodSubgroup)
+                .HasOne(x => x.foodSubGroup) // FIXED: Point to the object, NOT the string ID
                 .WithMany()
-                .HasForeignKey(x => x.FoodSubgroupCode)
+                .HasForeignKey(x => x.foodSubgroupID) // Foreign Key (String)
                 .OnDelete(DeleteBehavior.Restrict);
 
             // -----------------------------
             // AFCD -> shared food classification
             // -----------------------------
             modelBuilder.Entity<AfcdFoodEntryRaw>()
-                .HasOne(x => x.FoodClassification)
+                .HasOne(x => x.foodClassification)
                 .WithMany()
-                .HasForeignKey(x => x.ClassificationCode)
+                .HasForeignKey(x => x.classificationID)
                 .OnDelete(DeleteBehavior.Restrict);
 
             // -----------------------------
             // AUSNUT metadata -> shared food classification
             // -----------------------------
             modelBuilder.Entity<AusnutFoodMetadataRaw>()
-                .HasOne(x => x.FoodClassification)
+                .HasOne(x => x.foodClassification)
                 .WithMany()
-                .HasForeignKey(x => x.FoodAndDietarySupplementClassificationCode)
+                .HasForeignKey(x => x.foodAndDietarySupplementClassificationCode)
                 .OnDelete(DeleteBehavior.Restrict);
 
             // -----------------------------
@@ -169,29 +115,18 @@ namespace FitnessTool
             modelBuilder.Entity<AusnutFoodMetadataRaw>()
                 .HasOne<AusnutFoodEntryRaw>()
                 .WithOne()
-                .HasForeignKey<AusnutFoodMetadataRaw>(x => x.SurveyId)
+                .HasForeignKey<AusnutFoodMetadataRaw>(x => x.surveyID)
                 .OnDelete(DeleteBehavior.Restrict);
 
             // -----------------------------
             // Helpful indexes
             // -----------------------------
-            modelBuilder.Entity<AfcdFoodEntryRaw>()
-                .HasIndex(x => x.ClassificationCode);
-
-            modelBuilder.Entity<AfcdFoodEntryRaw>()
-                .HasIndex(x => x.FoodName);
-
-            modelBuilder.Entity<AusnutFoodEntryRaw>()
-                .HasIndex(x => x.PublicFoodKey);
-
-            modelBuilder.Entity<AusnutFoodEntryRaw>()
-                .HasIndex(x => x.FoodName);
-
-            modelBuilder.Entity<AusnutFoodMetadataRaw>()
-                .HasIndex(x => x.PublicFoodKey);
-
-            modelBuilder.Entity<AusnutFoodMetadataRaw>()
-                .HasIndex(x => x.FoodAndDietarySupplementClassificationCode);
+            modelBuilder.Entity<AfcdFoodEntryRaw>().HasIndex(x => x.classificationID);
+            modelBuilder.Entity<AfcdFoodEntryRaw>().HasIndex(x => x.foodName);
+            modelBuilder.Entity<AusnutFoodEntryRaw>().HasIndex(x => x.publicFoodKey);
+            modelBuilder.Entity<AusnutFoodEntryRaw>().HasIndex(x => x.foodName);
+            modelBuilder.Entity<AusnutFoodMetadataRaw>().HasIndex(x => x.publicFoodKey);
+            modelBuilder.Entity<AusnutFoodMetadataRaw>().HasIndex(x => x.foodAndDietarySupplementClassificationCode);
         }
     }
 }

@@ -6,13 +6,13 @@ namespace FitnessTool
 {
     public abstract class Food
     {
-        Nutrients nutrientProfile = new();
-
-        public string publicFoodKey { get; set; } = "";
         public string foodName { get; set; } = "";
 
+        public string publicFoodKey { get; set; } = "";
         public int foodClassificationID { get; set; }
+
         FoodClassification foodClassification { get; set; }
+        Nutrients nutrientProfile = new();
 
 
         //public string brandName { get; set; }

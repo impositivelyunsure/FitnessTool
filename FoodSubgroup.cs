@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FitnessTool
 {
-    internal class FoodSubgroup
+    public class FoodSubgroup
     {
         public string foodSubgroupID { get; set; } = ""; // 3 digit classification ID, the subgroup
         public string foodSubgroupName { get; set; } = "";

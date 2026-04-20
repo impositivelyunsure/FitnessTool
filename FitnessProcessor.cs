@@ -62,8 +62,8 @@ namespace FitnessTool
 
             if (result.success == true)
             {
-                CustomFoodItem custFoodItem = new CustomFoodItem(inputBrandName, result.validList[0], result.validList[1], result.validList[2], result.validList[3], result.validList[4]);
-                return custFoodItem;
+                //CustomFoodItem custFoodItem = new CustomFoodItem(inputBrandName, result.validList[0], result.validList[1], result.validList[2], result.validList[3], result.validList[4]);
+                //return custFoodItem;
 
             }
             else
@@ -73,13 +73,13 @@ namespace FitnessTool
             return null;
         }
         // Create and return an existing food item
-        public ExistingFoodItem CreateExistingFoodItem(string inputBrandName, double inputPrice, double inputProtein, double inputFats, double inputCarbs, double inputGrams)
-        {
-            ExistingFoodItem exstFoodItem = new ExistingFoodItem(inputBrandName, inputPrice, inputProtein, inputFats, inputCarbs, inputGrams);
-            return exstFoodItem;
-        }
+        //public ExistingFoodItem CreateExistingFoodItem(string inputBrandName, double inputPrice, double inputProtein, double inputFats, double inputCarbs, double inputGrams)
+        //{
+        //    ExistingFoodItem exstFoodItem = new ExistingFoodItem(inputBrandName, inputPrice, inputProtein, inputFats, inputCarbs, inputGrams);
+        //    return exstFoodItem;
+        //}
 
-        
+
 
 
     }

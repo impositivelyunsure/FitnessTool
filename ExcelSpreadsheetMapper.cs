@@ -10,7 +10,7 @@ using System.Windows.Input;
 
 namespace FitnessTool
 {
-    internal class ExcelSpreadsheetMapper
+    public class ExcelSpreadsheetMapper
     {
 
         private static readonly IReadOnlyDictionary<string, string> AfcdOverrides =
@@ -39,7 +39,7 @@ namespace FitnessTool
         public static List<string> GetUnmappedHeadersForAusnut(IEnumerable<string> headers) =>
             GetUnmappedHeaders<AusnutFoodEntryRaw>(headers, AusnutOverrides);
 
-        private static T MapByConvention<T>(
+        public static T MapByConvention<T>(
             IDictionary<string, object?> row,
             IReadOnlyDictionary<string, string> overrides)
             where T : new()
@@ -69,7 +69,7 @@ namespace FitnessTool
             return entity;
         }
 
-        private static List<string> GetUnmappedHeaders<T>(
+        public static List<string> GetUnmappedHeaders<T>(
             IEnumerable<string> headers,
             IReadOnlyDictionary<string, string> overrides)
         {
