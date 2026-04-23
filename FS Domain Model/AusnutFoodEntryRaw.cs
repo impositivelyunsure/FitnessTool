@@ -2,8 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace FitnessTool
 {
+
+    /// <summary>
+    /// AUSNUT raw entries
+    /// </summary>
+    
     public class AusnutFoodEntryRaw
     {
         public int surveyID { get; set; }

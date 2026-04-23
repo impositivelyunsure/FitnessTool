@@ -10,7 +10,7 @@ using System.Windows.Input;
 
 namespace FitnessTool
 {
-    public class ExcelSpreadsheetMapper
+    public class FSExcelMapper
     {
 
         private static readonly IReadOnlyDictionary<string, string> AfcdOverrides =
