@@ -7,10 +7,39 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="644" Width="1344">
     <Grid>
-        <TextBox Name="txtBoxMealName" HorizontalAlignment="Left" Margin="44,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="txtBoxMealQuant" HorizontalAlignment="Left" Margin="44,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="txtBoxMealServ" HorizontalAlignment="Left" Margin="44,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="txtBoxMealGrams" HorizontalAlignment="Left" Margin="44,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Button Name="btnCreateCustomMeal" Content="Create Custom Meal" HorizontalAlignment="Left" Margin="204,135,0,0" VerticalAlignment="Top" Width="188" Click="btnCreateCustomMeal_Click"/>
+        
+        <TabControl>
+            <TabItem Header="Home">
+                <Grid>
+                    <Grid Background="#FFE5E5E5"/>
+                    
+                </Grid>
+            </TabItem>
+            <TabItem Header="Tracking">
+                <Grid>
+                    <Grid Background="#FFE5E5E5"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Meals">
+                <Grid>
+                    <Grid Background="#FFE5E5E5"/>
+                    <TextBox Name="txtBoxMealName" HorizontalAlignment="Left" Margin="44,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBox Name="txtBoxMealQuant" HorizontalAlignment="Left" Margin="44,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBox Name="txtBoxMealServ" HorizontalAlignment="Left" Margin="44,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBox Name="txtBoxMealGrams" HorizontalAlignment="Left" Margin="44,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <Button Name="btnCreateCustomMeal" Content="Create Custom Meal" HorizontalAlignment="Left" Margin="204,135,0,0" VerticalAlignment="Top" Width="188" Click="btnCreateCustomMeal_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Nutrition">
+                <Grid>
+                    <Grid Background="#FFE5E5E5"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Customise">
+                <Grid>
+                    <Grid Background="#FFE5E5E5"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

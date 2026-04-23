@@ -6,14 +6,16 @@ namespace FitnessTool
 {
     public abstract class Food
     {
-        public string brandName { get; set; }
-        public double price { get; set; }
-        public double protein { get; set; }
-        public double fats { get; set; }
-        public double carbs { get; set; }
-        public double grams { get; set; }
+        public string foodName { get; set; } = "";
 
-        // ADD IN FUTURE:
-        // micronutrients
+        public string publicFoodKey { get; set; } = "";
+        public int foodClassificationID { get; set; }
+
+        FoodClassification foodClassification { get; set; }
+        Nutrients nutrientProfile = new();
+
+
+        //public string brandName { get; set; }
+        //public double price { get; set; }
     }
 }
