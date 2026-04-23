@@ -12,7 +12,7 @@ namespace FitnessTool
         {
             base.OnStartup(e);
 
-            // temporarily having the data read on start up for now
+            // temporarily load the db on startup
             try
             {
                 var options = new DbContextOptionsBuilder<FoodDbContext>()
@@ -20,32 +20,13 @@ namespace FitnessTool
                     .Options;
 
                 using var db = new FoodDbContext(options);
+
+                // We only call EnsureCreatedAsync() just in case the DB file is missing
                 await db.Database.EnsureCreatedAsync();
-
-                // 1. Import Hierarchies first (Required for Foreign Keys)
-                await ClassificationImporter.ImportFoodClassificationLookupAsync(
-                    @"C:\FOOD DATA\AUSNUT-2023-Food-and-dietary-supplement-classification-system-1.xlsx",
-                    db);
-
-                // 2. Import AFCD (Simple one-table import)
-                await ExcelImportService.ImportAfcdAsync(
-                    @"C:\FOOD DATA\AFCD Release 3 - Nutrient profiles.xlsx",
-                    db);
-
-                // 3. Import AUSNUT (Two-table import)
-                await ExcelImportService.ImportAusnutNutrientsAsync(
-                    @"C:\FOOD DATA\AUSNUT 2023 - Food details.xlsx",
-                    db);
-
-                await ExcelImportService.ImportAusnutMetadataAsync(
-                    @"C:\FOOD DATA\AUSNUT 2023 - Food nutrient profiles.xlsx",
-                    db);
-
-                MessageBox.Show("All datasets imported successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString(), "Import Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.ToString());
             }
         }
     }

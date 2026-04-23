@@ -4,12 +4,19 @@ using System.Text;
 
 namespace FitnessTool
 {
+
+    /// <summary>
+    /// AUSNUT metadata
+    /// </summary>
+
     public class AusnutFoodMetadataRaw
     {
         public int surveyID { get; set; }
         public string publicFoodKey { get; set; } = "";
         public string derivation { get; set; } = "";
         public string foodName { get; set; } = "";
+        public FoodClassification foodClassification { get; set; } = null!;
+
 
         public string? foodDescription { get; set; }
         public string? samplingDetails { get; set; }
@@ -32,8 +39,5 @@ namespace FitnessTool
         public string? adgClassificationName2 { get; set; }
 
         public string? discretionaryFoodClassification { get; set; }
-
-        public FoodClassification foodClassification { get; set; } = null!;
-
     }
 }

@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace FitnessTool
 {
+
+    /// <summary>
+    /// AFCD raw entries
+    /// </summary>
+
     public class AfcdFoodEntryRaw
     {
-
         public string publicFoodKey { get; set; } = "";
         public string classificationID { get; set; } = "";
         public string derivation { get; set; } = "";
